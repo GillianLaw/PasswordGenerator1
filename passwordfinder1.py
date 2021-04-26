@@ -3,7 +3,7 @@ import sqlite3
 db = sqlite3.connect('passwords.sqlite')
 
 search = input("Which site are you looking for? ")
-for row in db.execute("SELECT * FROM passwords WHERE name = ?", (search,)):
+for row in db.execute("SELECT * FROM passwords WHERE name LIKE ?", (search,)):
     print(row)
 
 # for name, password in db.execute("SELECT * FROM passwords"):
