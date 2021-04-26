@@ -38,12 +38,12 @@ cursor.execute(update_sql)
 cursor.connection.commit()
 cursor.close()
 
-"""Print the sites and passwords. I should really move this to another file, as it will
-create a really long list soon!"""
+"""Print the sites and passwords. Moved to another file, as it is creating a long list!"""
+#
 
-for name, password in db.execute("SELECT * FROM passwords"):
-    print(name)
-    print(password)
-    print("-" * 20)
+# for name, password in db.execute("SELECT * FROM passwords"):
+#     print(name)
+#     print(password)
+#     print("-" * 20)
 
 db.close()
