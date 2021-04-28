@@ -37,6 +37,7 @@ cursor.execute(update_sql)
 
 cursor.connection.commit()
 cursor.close()
+db.close()
 
 """Print the sites and passwords. Moved to another file, as it is creating a long list!"""
 #
@@ -45,5 +46,3 @@ cursor.close()
 #     print(name)
 #     print(password)
 #     print("-" * 20)
-
-db.close()

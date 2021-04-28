@@ -8,8 +8,7 @@ def create_password(passwordlength):
 
     """I know I could use 'string.ascii_letters + string.punctuation'
     but I want to ensure there is some of each type in each password.
-    I've chosen (for the moment) to make each password 10 digits long
-    rather than offer a choice"""
+    ""
 
     p1 = "".join(random.sample(string.ascii_lowercase, 2))
     p2 = "".join(random.sample(string.ascii_uppercase, 2))
@@ -25,18 +24,19 @@ def create_password(passwordlength):
     return random_password
 
 #TODO the database stuff isn;t working...
-# def save_to_db():
-#     db = sqlite3.connect('passwords1.sqlite')
-#     db.execute("CREATE TABLE IF NOT EXISTS passwordsOOP (name TEXT, password TEXT)")
-#     db.execute("INSERT INTO passwordsOOP (name, password) VALUES (?, ?)", (main.website, main.password))
-#
-#     update_sql = "SELECT * FROM passwordsOOP"
-#     cursor = db.cursor()
-#     cursor.execute(update_sql)
-#
-#     cursor.connection.commit()
-#     cursor.close()
-#     db.close()
+def save_to_db():
+    db = sqlite3.connect('passwords.sqlite')
+    db.execute("CREATE TABLE IF NOT EXISTS passwordOOP (name TEXT, pass TEXT)")
+    db.execute("INSERT INTO passwordOOP (name, pass) VALUES (?, ?)", (website, password))
+
+    update_sql = "SELECT * FROM passwordOOP"
+    cursor = db.cursor()
+    cursor.execute(update_sql)
+
+    cursor.connection.commit()
+    cursor.close()
+    db.close()
+
 
 def main():
     website = input("Which site is this for? ")
@@ -52,7 +52,7 @@ def main():
     password = create_password(length)
     print('Generated password for {}: {}'.format(website, password))
 
-    # save_to_db()
+    save_to_db()
 
 run = True
 while run:
