@@ -55,8 +55,8 @@ def main():
         st.write('Generated password for {}: {}'.format(website, password))
 
         save_to_db(website, password)
-<br>
-<br>
+</br>
+</br>
     search = st.text_input("Can't remember your password? Which site is it for?")
     if st.button('Search Passwords'):
         search_db(search)
