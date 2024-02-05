@@ -3,7 +3,7 @@ import random
 import sqlite3
 import string
 
-st.write("Gillian's password generator")
+st.title("Gillian's password generator")
 
 import streamlit as st
 import sqlite3
